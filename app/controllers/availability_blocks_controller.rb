@@ -24,13 +24,10 @@ registered timezone, without the tc_scheduler needing to know what timezone it i
 
 
   def index
-    debugger
     if (@user_id = session[:user_id]).nil?
-      # debugger
       flash[:error] = "AvailabilityBlock: User not initialized."
       redirect_to :controller => 'user', :action => 'login' and return
     else
-      # debugger
       if session[:ab_utc_offset].nil? then  session[:ab_utc_offset] = 0 end
       abs = AvailabilityBlock.find_all_by_user_id(@user_id)
       abslist = Array.new
@@ -45,7 +42,6 @@ registered timezone, without the tc_scheduler needing to know what timezone it i
   end
 
   def create
-    debugger
     ab = AvailabilityBlock.new(
       :start => incoming_to_utc(params[:start].to_datetime),
       :end => incoming_to_utc(params[:end].to_datetime),
@@ -61,7 +57,6 @@ registered timezone, without the tc_scheduler needing to know what timezone it i
   end
 
   def update
-    # debugger
     ab = AvailabilityBlock.find(params[:id]) if params[:id]
     if ab.nil?
       flash[:error] = "AvailabilityBlock update: id nil or #{params[:id]} not found."
@@ -83,7 +78,6 @@ registered timezone, without the tc_scheduler needing to know what timezone it i
 
 
   def destroy
-    # debugger
     ab = AvailabilityBlock.find(params[:id])
     if ab.nil?
       flash[:error] = "AvailabilityBlock destroy: id #{params[:id]} not found."
@@ -100,7 +94,6 @@ registered timezone, without the tc_scheduler needing to know what timezone it i
   end
 
   def reset_timezone
-    debugger
     # set to new TimeZone
     ret = {}
     offset = params[:offset].nil? ? 0 :  params[:offset].to_i     # an initial empty call sets the timezone to UTC
