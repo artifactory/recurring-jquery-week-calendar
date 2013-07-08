@@ -1,0 +1,667 @@
+@import url("reset.css");
+
+
+/* -----------------------------------------
+
+Styles used for formating the main layout and positioning
+
+--------------------------------------------*/
+
+
+body {
+	text-align:center; /* IE6 centering */
+	background:#00518F;
+}
+
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#666;
+	line-height:150%;
+}
+strong {
+	font-weight:bold;
+}
+
+a {
+	text-decoration:none;
+	color:#00518F;
+}
+
+#page {
+	width:970px;
+	margin:0 auto;
+	text-align:left; /* reset IE6 centering */
+}
+
+
+/* -----------------------------------------
+	Header styles
+--------------------------------------------*/
+
+#header {
+	position:relative;
+}
+
+h1#logo {
+	padding-top:20px;
+	margin-bottom:20px;
+}
+
+h1#logo a {
+	display:block;
+	text-indent:-999em;
+	width:219px;
+	height:60px;
+	background:url(../img/logo.png) top left no-repeat;
+}
+
+#user-block {
+	position:absolute;
+	text-align:right;
+	color:#A1D0FE;
+	right:0;
+	top:10px;
+}
+#user-block a {
+	color:#fff;
+	font-weight:bold;
+}
+a.logout {
+	background:url(../img/ico_logout.png) right 50% no-repeat;
+	padding-right:20px;
+}
+p#clockedin {
+	position:absolute;
+	right:0;
+	bottom:15px;
+	background:url(../img/ico_clock.png) left 50% no-repeat;
+	padding-left:20px;
+	height:20px;
+	line-height:20px;
+	color:#A1D0FE;
+	font-weight:bold;
+}
+p#clockedin span {
+	color:#fff;
+	text-transform:uppercase;
+}
+
+/* -----------------------------------------
+	Top Navigation
+--------------------------------------------*/
+ul#top-nav {
+	background:url(../img/bg_topnav.png) bottom left repeat-x;
+}
+ul#top-nav li {
+	background: #fff;
+	display:block;
+	float:left;
+	background:#6DABE6 url(../img/bg_topnav_tab.png) bottom left repeat-x;
+	padding:10px 20px 10px 20px;
+	margin-right:5px;
+	text-align:center;
+}
+
+ul#top-nav li a {
+	font-size:13px;
+	color:#fff;
+	font-weight:bold;
+}
+ul#top-nav li.selected {
+	background:#fff;
+}
+ul#top-nav li.selected a {
+	color:#00518F;
+}
+
+/* -----------------------------------------
+	Content styles
+--------------------------------------------*/
+
+#content {
+	background:#fff;
+	padding-bottom:30px;
+	min-height:300px;
+}
+
+
+#left-column {
+	float:left;
+	width:720px;
+	margin-left:30px;
+	margin-right:20px;
+	margin-top:30px;
+}
+#right-column {
+	float:left;
+	width:180px;
+	margin-right:20px;
+	margin-top:50px;
+}
+
+
+h2 {
+	font-size:24px;
+	color:#153D7F;
+	margin-bottom:20px;
+}
+
+/* -----------------------------------------
+	Right column styles
+--------------------------------------------*/
+.box {
+	position:relative;
+}
+.box h3 {
+	font-size:15px;
+	color:#153D7F;
+	font-weight:bold;
+	border-bottom:5px solid #999999;
+	padding-bottom:3px;
+	margin-bottom:5px;
+}
+span.date {
+	background:url(../img/ico_news.png) left 50% no-repeat;
+	padding-left:15px;
+}
+.box li {
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+.box li a {
+	font-weight:bold;
+}
+
+a.viewall {
+	position:absolute;
+	top:0;
+	right:0;
+	background:url(../img/ico_arrow.png) left 50% no-repeat;
+	padding-left:10px;
+}
+
+
+
+
+/* -----------------------------------------
+	Footer styles
+--------------------------------------------*/
+#footer {
+	padding-top:20px;
+}
+#footer p.copy {
+	background:url(../img/logo_small.png) left 50% no-repeat;
+	line-height:30px;
+	padding-left:120px;
+	color:#fff;
+}
+
+
+
+/* -----------------------------------------
+	Homepage styles
+--------------------------------------------*/
+
+p#refresh {
+	float:right;
+	margin-top:-30px;
+}
+
+
+table.queue {
+	width:100%;
+	margin-bottom:20px;
+}
+
+table.queue thead th {
+	padding: 5px 10px;
+}
+table.queue tbody td {
+	padding:8px 10px;
+	font-size:16px;
+	border-bottom:1px solid #CCCCCC;
+	font-weight:bold;
+}
+table.queue  thead th {
+	border-bottom:5px solid #999;
+	font-weight:bold;
+	font-size:12px;
+	text-align:left;
+}
+
+
+a.button_lock {
+	width:90px;
+	height:25px;
+	display:block;
+	background:url(../img/but_lock.png) top left no-repeat;
+	text-indent:-999em;
+}
+a.button_locked {
+	width:90px;
+	height:25px;
+	display:block;
+	background:url(../img/but_locked.png) top left no-repeat;
+	text-indent:-999em;
+}
+tr.status_locked {
+	background:#F4F4F4;
+}
+tr.status_1 {
+	background:#FFE9D3;
+}
+td.alert {
+	color:#F00;
+}
+
+
+.widget {
+	float:left;
+	width:340px;
+	margin:0 10px;
+	position:relative;
+}
+.widget h3 {
+	font-weight:bold;
+	border-bottom:5px solid #999;
+	font-size:12px;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+.widget p.refresh {
+	position:absolute;
+	top:0px;
+	right:20px;
+}
+.widget a.button_close {
+	position:absolute;
+	top:3px;
+	right:0;
+	background:url(../img/ico_close.png) top left no-repeat;
+	width:10px;
+	height:10px;
+	text-indent:-999em;
+}
+.widget table {
+	width:100%;
+}
+.widget td,
+.widget th {
+	font-size:19px;
+	padding:10px 0;
+	border-bottom:1px solid #CCCCCC;
+	font-weight:bold;
+	text-align:right;
+}
+.widget th {
+	font-size:11px;
+	font-weight:normal;
+	text-align:left;
+}
+a.viewmore {
+	background:url(../img/ico_arrow.png) left 50% no-repeat;
+	padding-left:15px;
+	float:right;
+	font-weight:bold;
+}
+
+/* -----------------------------------------
+	My Profile Styles
+--------------------------------------------*/
+div.info {
+	border:1px solid #FCF78B;
+	background:#FFFFCC;
+	padding:10px;
+	margin-bottom:20px;
+}
+ul.simple {
+	margin: 10px 0;
+}
+ul.simple li {
+	list-style:disc;
+	margin-left:15px;
+}
+
+a.changepass {
+	padding-left:11px;
+}
+table.licences {
+	margin-bottom:10px;
+}
+/* -----------------------------------------
+	Reports styles
+--------------------------------------------*/
+
+
+div.report {
+	background:#F7F7F7;
+	border:1px solid #E1E1E1;
+	width:200px; /* 220px */
+	float:left;
+	padding:10px;
+	margin-bottom:18px;
+	margin-right:18px;
+	min-height:100px;
+}
+div.report h3 {
+	font-size:12px;
+	font-weight:bold;
+	border-bottom:5px solid #CCCCCC;
+	margin-bottom:10px;
+}
+
+/* -----------------------------------------
+	Help styles
+--------------------------------------------*/
+#faq  {
+	margin-bottom:20px;
+}
+#faq li {
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+#faq h3 {
+	background:url(../img/ico_arrow.png) left 3px no-repeat;
+	padding-left:20px;
+	font-weight:bold;
+}
+#faq h3.expanded {
+	background:url(../img/ico_arrow_down.png) left 0px no-repeat;
+}
+#faq h3.expanded a {
+	color:#000;
+}
+#faq .answer {
+	padding:10px 0;
+}
+
+h4 {
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+form.askquestion {
+	border-top:5px solid #CCC;
+	background:#EEE;
+}
+
+/* -----------------------------------------
+	Login styles
+--------------------------------------------*/
+
+form.centered {
+  margin:0 auto;
+  width:400px;
+}
+form.centered a.forgotpass {
+  display:block;
+  clear:both;
+  margin-left:120px;
+  padding-top:10px;
+  font-weight:bold;
+}
+form.centered fieldset {
+	border-top:5px solid #CCC;
+}
+
+div.error {
+	background:#FEE4CB;
+	border:1px solid #FBBC8A;
+	padding:10px;
+	margin-bottom:15px;
+	font-size:11px;
+}
+/* -----------------------------------------
+	Tables styles
+--------------------------------------------*/
+table {
+	width:100%;
+}
+thead th, 
+thead td {
+	border-bottom:3px solid #999;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:10px;
+}
+tbody td,
+tbody th {
+	border-bottom:1px solid #CCCCCC;
+	padding:5px 0;
+}
+
+td.actions,
+th.actions {
+	text-align:right;
+}
+
+table td a.activate {
+	background:url(../img/ico_check.png) left 50% no-repeat;
+	padding:15px;
+}
+table td a.deactivate {
+	background:url(../img/ico_close.png) left 50% no-repeat;
+	padding:15px;
+}
+table td a.edit {
+	margin:0;
+	float:none;
+}
+
+/* -----------------------------------------
+	Form styles
+--------------------------------------------*/
+
+form {
+	font-size:12px;
+}
+pre, textarea {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+label {
+	width:120px;
+	padding-right:10px;
+	float:left;
+	font-weight:bold;
+	padding:3px 0;
+}
+div.input {
+	clear:both;
+	margin-bottom:10px;
+}
+div.input {
+}
+div.input input, 
+textarea {
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-bottom:1px solid #DADADA;
+	border-right:1px solid #DADADA;
+	background:#fff;
+	
+}
+div.input input {
+	padding:3px 10px;
+	width:200px;
+}
+div.radio input {
+	clear:both;
+	float:left;
+	margin-top:3px;
+	margin-right:5px;
+	margin-left:10px;
+	width:auto;
+	background:none;
+	border:none;
+}
+div.radio div.group {
+	float:left;
+}
+div.radio label {
+	float:left;
+}
+textarea {
+	float:left;
+	padding:10px;
+	width:400px;
+	height:100px;
+}
+input.submit {
+	float:left;
+	clear:both;
+	margin-left:120px;
+}
+input.submit, 
+input.button_save {
+	background:url(../img/bg_button.png) top left no-repeat;
+	width:100px;
+	height:30px;
+	color:#fff;
+	font-weight:bold;
+	border:none;
+	font-size:11px;
+}
+input.button_cancel {
+	background:url(../img/but_cancel.png) top left no-repeat;
+	width:100px;
+	height:30px;
+	color:#fff;
+	font-weight:bold;
+	border:none;
+	margin-right:15px;
+	font-size:11px;
+}
+
+fieldset {
+	padding:10px;
+	background:#EEEEEE;
+	margin-bottom:10px;
+}
+fieldset.noteditable {
+	padding:0;
+	background:none;
+	padding-top:10px;
+}
+fieldset.noteditable input,
+fieldset.noteditable select,
+fieldset.noteditable textarea {
+	border:none;
+	background:none;
+}
+fieldset.noteditable textarea {
+	display:none;
+}
+
+fieldset.noteditable input.button_cancel,
+fieldset.noteditable input.button_save {
+	display:none;
+}
+form h3 {
+	font-size:16px;
+	color:#153D7F;
+	font-weight:bold;
+	border-bottom:5px solid #CCC;
+	padding-bottom:5px;
+	margin-top:10px;
+}
+form h4 {
+	border-bottom:1px solid #E3E3E3;
+	padding-bottom:5px;
+	font-size:14px;
+	color:#5884B1;
+}
+form hr {
+	height:1px;
+	border:0;
+	border-bottom:1px solid #E3E3E3;
+}
+
+form a.edit {
+	background:url(../img/ico_edit.png) left 50% no-repeat;
+	padding-left:20px;
+	float:right;
+	margin-top:-25px;
+	font-size:11px;
+	font-weight:bold;
+}
+form a.add {
+	background:url(../img/ico_add.png) left 50% no-repeat;
+	padding-left:20px;
+	float:right;
+	margin-top:-25px;
+	font-size:11px;
+	font-weight:bold;
+}
+pre.replaced {
+	padding:0 10px;
+	float:left;
+}
+* [disabled] {
+	color:#666;
+}
+
+
+
+div.input:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+div.input {
+	display: inline-block;
+}
+ 
+html[xmlns] div.input {
+	display: block;
+}
+ 
+* html div.input {
+	height: 1%;
+}
+
+span.valid {
+	background:url(../img/ico_valid.png) left 50% no-repeat;
+	padding-left:20px;
+}
+span.notvalid {
+	background:url(../img/ico_notvalid.png) left 50% no-repeat;
+	padding-left:20px;
+}
+
+
+
+
+
+
+
+
+
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

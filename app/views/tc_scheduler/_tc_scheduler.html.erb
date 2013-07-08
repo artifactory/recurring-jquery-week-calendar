@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+  <%= stylesheet_link_tag("reset_tc") %>
+  <%= stylesheet_link_tag("jquery-ui-1.8.11.custom") %>
+  <%= stylesheet_link_tag("jquery.weekcalendar") %>
+  <%= stylesheet_link_tag("tc_scheduler") %>
+  <%= stylesheet_link_tag("skins/default") %>
+
+  <%= javascript_include_tag("jquery-1.4.4.min") %>
+  <%= javascript_include_tag("jquery-ui-1.8.11.custom.min") %>
+  <%= javascript_include_tag("date") %>
+  <%= javascript_include_tag("jquery.weekcalendar") %>
+  <%= javascript_include_tag("tc_scheduler") %>
+<script type="text/javascript">
+var $tc_host = <%= "#{@tc_host}" %>;
+</script>
+
+  <title>Scheduler</title>
+<style type="text/css">
+#scheduler_header {
+  font-size:16px;
+}
+#scheduler_desc {
+  font-weight:normal;
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+    <h1>
+      <div id="scheduler_header">Scheduler: <span style="font-weight:bold;">User <%= session[:user].name %></span>
+          <span style="font-weight:normal;">
+          <table align="right">
+          <tr><td><span id="current_zone">current_zone&nbsp;</span></td></tr>
+          <span  style="font-weight:lighter;">
+          <tr><td>
+            <form>
+              <% @zone_array = Array.new; ActiveSupport::TimeZone.us_zones.each {|z| @zone_array << "<option value='#{z.utc_offset/(60*60)}'>#{z.name}</option>"} %>
+              <select id="zone" class="zone">
+                <option value="">Change Time Zone</option>
+                  <% @zone_array.each {|z| %>
+                  <%= z %>
+                  <% } %>
+              </select>
+            </form>
+          </td></tr>
+          </table>
+          </span>
+        </span>
+      </div>
+      <div id="scheduler_desc">To set your availability schedule, click and drag areas on the calendar. When you release the mouse, a menu will popup where you can verify the times and elect if you will be available for video and/or phone appointments. Add as many slots as you'd like. You can also drag and drop and resize existing slots. </div>
+    </h1>
+ <div id='calendar'></div>
+  <div id="event_edit_container">
+    <form>
+      <input type="hidden" name="user_id" value="<%= @user.id %>"/>
+      <ul>
+        <li>
+          <label for="start">Start Time: </label><select name="start"><option value="">Select Start Time</option></select>
+        </li>
+        <li>
+          <label for="end">End Time: </label><select name="end"><option value="">Select End Time</option></select>
+        </li>
+        <li>
+          <label for="appointment_type">appointment Type: </label><select name="appointment_type">
+            <option value="phone">Phone Only</option>
+            <option value="phone_and_video">Phone and Video</option>
+          </select>
+        </li>
+      </ul>
+    </form>
+  </div>
+</body>
+</html>

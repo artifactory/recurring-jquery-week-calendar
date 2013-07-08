@@ -1,0 +1,104 @@
+<D-c>
+<head>
+<script type="text/javascript">
+  var local_date = new Date();
+  var gmt_hours = -local_date.getTimezoneOffset()/60;
+
+ </script>
+
+  <%= javascript_include_tag("jquery-1.4.4.min") %>
+  <%= javascript_include_tag("jquery-ui-1.8.11.custom.min") %>
+  <%= javascript_include_tag("tc_timezone_selector") %>
+  <%= stylesheet_link_tag "smoothness/jquery-ui-1.8.11.custom.css" %>
+  <%= stylesheet_link_tag "jquery.weekcalendar.css" %>
+ </head>
+<body>
+
+<p/>
+<table>
+<tr>
+<td align="left">
+<b><div id="current_zone">temp</div></b>
+</td>
+<td align="center">
+<form>
+<% @zone_array = Array.new; ActiveSupport::TimeZone.us_zones.each {|z| @zone_array << "<option value='#{z.utc_offset/(60*60)}'>#{z.name}</option>"} %>
+
+<select id="zone">
+  <option value="">Change Time Zone</option>
+    <% @zone_array.each {|z| %>
+    <%= z %>
+    <% } %>
+</select>
+</form>
+
+</td>
+</tr>
+</table>
+<p/>
+<table>
+<% test_time = DateTime.new(2001,2,3,4,0,0) %>
+<% now_time = DateTime.now %>
+<tr>
+<th></th>
+<th>Selected</th>
+<th>Server</th>
+<th>Local (Browser)</th>
+<th>GMT</th>
+<th>Test</th>
+</tr>
+<tr>
+<td>timezone</td>
+<td><div id='selected_zone'>selected_zone_holder</div></td>
+<td>Server time zone: <%= now_time.zone %></td>
+<td> <div id='local'>local_zone_holder</div></td>
+<td><%= now_time.utc.zone %>
+<td><%= test_time.zone %></td>
+</tr><tr>
+
+<td>offset</td>
+<td><div id='selected_offset'>selected_offset_holder</div></td>
+<td><%= now_time %></td>
+<td> <div id='local'>local_zone_holder</div></td>
+<td><%= now_time.utc.utc_offset/(60*60) %>
+<td><%= test_time.zone %></td>
+</tr><tr>
+
+<td>time</td>
+<td><div id='selected_time'>selected_time_holder</div></td>
+<td><%= now_time %></td>
+<td> <div id='local'>local_time_holder</div></td>
+<td><%= now_time.utc %>
+<td><%= test_time %></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+<font "color"="blue">
+<td>selected offset <div id="selected_offset">gmt_hours</div></td>
+<p/>Server timezone offset: <%= Time.now.utc_offset/(60*60) %>
+
+<p/>
+<p/>Server time: <%= Time.now %>
+
+<p/>GMT time zone: <%= Time.now.utc.zone %>
+<p/>GMTime: <%= Time.now.utc %>
+
+<p/>
+<p/>
+``
+<p/>Test time to try: <%= test_time %><p/>
+<br/>test time gmtime: <%= test_time.to_time.utc %>
+
+<font "color"="blue">
+<br/>selected zone: [<div id='selected_zone'>holder </div>]
+<br/>selected offset <div id="selected_offset">gmt_hours</div>
+</font>
+<p/>
+</body>
+</html>
